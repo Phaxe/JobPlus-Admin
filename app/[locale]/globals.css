@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap");
+
+textarea {
+  height: 111px;
+  width: 100%;
+}
+@layer components {
+  .responsive {
+    @apply 2xl:w-[1200px]  xl:w-[1050px]  lg:w-[1100px] 3xl:w-[1500px] ;
+  
+  }
+  .bigIndex {
+    @apply z-[999] !important;
+  }
+}
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+}
+}

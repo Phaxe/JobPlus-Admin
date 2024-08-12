@@ -1,0 +1,24 @@
+/* Hide default placeholder text */
+input[type="date"]::-webkit-input-placeholder {
+    color: transparent;
+}
+
+/* Hide calendar icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/* Hide placeholder text on invalid state */
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+
+/* Hide placeholder text on focus */
+input[type="date"]:focus::-webkit-datetime-edit {
+    color: transparent !important;
+}
+
+/* Hide placeholder text on placeholder state */
+input[type="date"]::placeholder::-webkit-datetime-edit {
+    color: transparent !important;
+}

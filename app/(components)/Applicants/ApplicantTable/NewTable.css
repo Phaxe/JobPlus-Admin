@@ -1,0 +1,9 @@
+
+  
+  
+
+
+    .rtl-pagination .ant-pagination-item-link {
+      transform: scaleX(-1) !important;
+      color:"#000" !important; /* Flip the arrow horizontally */
+    }

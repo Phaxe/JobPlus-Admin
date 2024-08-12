@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:slnt,wght@-11..11,200..1000&display=swap');
+.ant-btn{
+  font-family: 'Cairo', sans-serif !important;
+}
+.font-cairo {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+.ant-menu-item, .ant-menu-item span {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+.ant-dropdown-menu {
+  font-family: 'Cairo', sans-serif !important;
+}
