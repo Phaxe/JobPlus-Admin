@@ -7,7 +7,7 @@ import backIconGreen from "/public/Back-icon-green.svg";
 import { Pagination } from "antd";
 import { useLocale, useTranslations } from "next-intl";
 import TableDropDown from "./TableDropDown";
-import TableToggle from "../../TableToggle"
+import TableToggle from "./TableToggle"
 const ViewJobsTable = ({ dropdownTable, dropDownData }) => {
   const t = useTranslations("JobsTable");
   const c = useTranslations("Candidates");
@@ -123,11 +123,10 @@ const ViewJobsTable = ({ dropdownTable, dropDownData }) => {
           >
             <th className={dropdownTable}></th>
             <th className="font-cairo text-base">اسم الشركة</th>
-            <th className="font-cairo text-base">المسمى الوظيفي</th>
-            <th className="font-cairo text-base">التخصص</th>
-            <th className="font-cairo text-base">تاريخ الانتهاء</th>
-            <th className="font-cairo text-base">موقع العمل</th>
-            <th className="font-cairo text-base">عدد المتقدمين</th>
+            <th className="font-cairo text-base">اسم المدير</th>
+            <th className="font-cairo text-base">البريد الالكتروني</th>
+            <th className="font-cairo text-base">رقم الجوال</th>
+            <th className="font-cairo text-base">عدد الوظائف</th>
             <th className="font-cairo text-base">تفعيل</th>
             <th className="font-cairo text-base">{t("Action")}</th>
           </tr>
@@ -176,9 +175,7 @@ const ViewJobsTable = ({ dropdownTable, dropDownData }) => {
                 <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
                   {row.endDate}
                 </td>
-                <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
-                  {row.city}
-                </td>
+              
                 <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
                   {row.applicants}
                 </td>
