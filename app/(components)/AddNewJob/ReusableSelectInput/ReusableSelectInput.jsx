@@ -1,0 +1,84 @@
+import Image from 'next/image';
+import React, { useState } from 'react';
+import backIconGreen from "/public/Back-icon-green.svg";
+import { useLocale } from 'next-intl';
+
+const ReusableSelectInput = ({
+  label,
+  placeholder,
+  options,
+  name,
+  formik,
+  astrix,
+  classWidth,
+  noticeClass,
+  notice,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const locale = useLocale();
+
+  return (
+    <div className="w-full">
+      <label htmlFor={name} className="block text-sm font-medium py-2">
+        {label} <span className="text-red-500">{astrix}</span>
+      </label>
+      <div className={`relative text-base ${classWidth}`}>
+        <select
+          id={name}
+          name={name}
+          className="block w-full px-3 py-2 h-14 text-gray-500 rounded focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-transparent border border-gray-300 appearance-none relative"
+          placeholder={placeholder}
+          value={formik.values[name]}
+          onChange={(e) => {
+            formik.handleChange(e);
+            handleClick();
+          }}
+          onClick={handleClick}
+          onBlur={(e) => {
+            setIsOpen(false);
+            formik.handleBlur(e);
+          }} // Close the dropdown when focus is lost
+        >
+          <option value="">{placeholder}</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        {locale === "ar" ? (
+          <div className="pointer-events-none absolute inset-y-0 left-0 top-[0%] flex items-center px-4">
+            <Image
+              src={backIconGreen}
+              width={25}
+              height={10}
+              alt="select arrow"
+              className={`transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+            />
+          </div>
+        ) : (
+          <div className="pointer-events-none absolute inset-y-0 right-0 top-[0%] flex items-center px-4">
+            <Image
+              src={backIconGreen}
+              width={25}
+              height={10}
+              alt="select arrow"
+              className={`transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+            />
+          </div>
+        )}
+        {formik.errors[name] && formik.touched[name] ? (
+          <span className="text-red-500 py-2">{formik.errors[name]}</span>
+        ) : null}
+        <p className={`pt-2 text-gray-300 absolute ${noticeClass}`}>{notice}</p>
+      </div>
+    </div>
+  );
+};
+
+export default ReusableSelectInput;
