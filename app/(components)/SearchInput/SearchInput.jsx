@@ -5,7 +5,7 @@ import filterIcon from '/public/filter-icon.svg'; // Ensure the path to your fil
 import searchIcon from '/public/SearchIcon.svg'; // Ensure the path to your search icon is correct
 import SearchModal from "../SearchModal/SearchModal"
 import { useLocale, useTranslations } from 'next-intl';
-const SearchInput = () => {
+const SearchInput = ({hidden}) => {
   const g = useTranslations("General")
   const locale  = useLocale();
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -24,7 +24,7 @@ const SearchInput = () => {
         placeholder={g("searchFor")}
         className={`w-full h-12  border rounded focus:outline-none focus:ring-2 focus:ring-gray-500 ${locale === "ar" ? "pl-12 pr-5 text-right" : "pr-12 pl-5 text-left"}`}
       />
-      <div className={`absolute flex items-center  cursor-pointer ${locale === "ar" ? " inset-y-0 left-0 pl-3" : " inset-y-0 right-0 pr-3"}`}>
+      <div className={`absolute flex items-center ${hidden}  cursor-pointer ${locale === "ar" ? " inset-y-0 left-0 pl-3" : " inset-y-0 right-0 pr-3"}`}>
         <Image src={filterIcon} alt="Filter Icon" width={24} height={24} onClick={showModal} />
       </div>
       <div className={` absolute flex items-center ${locale === "ar" ? "inset-y-0 right-0 " : "inset-y-0 left-0 "}`}>

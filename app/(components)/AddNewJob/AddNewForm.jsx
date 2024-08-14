@@ -211,15 +211,33 @@ const AddJobForm = () => {
               {j("jobDescribtion")}
             </h1>
             <InputForm
+              labelName="اسم الشركة"
+              inputPlaceholder={j("jobTitle")}
+              name="title"
+              formik={formik}
+              astrix={"*"}
+            />
+        
+          </div>
+
+          <div className="grid items-center justify-center grid-cols-2 gap-10 w-full">
+          <InputForm
               labelName={j("jobTitle")}
               inputPlaceholder={j("jobTitle")}
               name="title"
               formik={formik}
               astrix={"*"}
             />
-          </div>
-
-          <div className="grid items-center justify-center grid-cols-2 gap-10 w-full">
+                  <ReusableSelectInput
+              label="مجال العمل"
+              classWidth={"w-full"}
+              placeholder={j("educationDegree")}
+              options={options}
+              name="major_id"
+              formik={formik}
+              astrix="*"
+              notice={""}
+            />
             <ReusableSelectInput
               label={j("educationDegree")}
               classWidth={"w-full"}
@@ -298,27 +316,15 @@ const AddJobForm = () => {
             </div>
 
             <div className="flex  items-start justify-start col-span-2 gap-10 ">
-              <ReusableSelectInput
-                label={j("expYears")}
-                classWidth={"w-full mt-2"}
-                placeholder={j("expYears")}
-                options={options}
-                name="jobCategory"
-                formik={formik}
-                astrix="*"
-                notice={""}
-              />
-
-              <ReusableSelectInput
-                label=""
-                classWidth={"w-full grow mt-7"}
-                placeholder=""
-                options={options}
-                name="jobCategory"
-                formik={formik}
-                astrix="*"
-                notice={""}
-              />
+           <InputForm
+              labelName={j("expYears")}
+              inputPlaceholder={j("expYears")}
+              name="title"
+              formik={formik}
+              astrix={"*"}
+              inputClass={"w-full"}
+            />
+            
             </div>
             <ReusableSelectInput
               label={j("language")}
