@@ -6,17 +6,12 @@ import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Close from "/public/close.svg";
 import AlertIcon from "/public/alert.svg";
-import { useDispatch } from "react-redux";
-import { cancelInterview } from "@/app/ReduxStore/Slices/interviewsSlice";
-const AcceptModal = ({ visible, onClose,data }) => {
-const a = useTranslations("Applicant")
+import { useRouter } from "next/router";
+const ConfirmDelete = ({ visible, onClose,handleDelete,jobTitle }) => {
+
+const g = useTranslations("Applicant")
 const locale = useLocale()
-const dispatch = useDispatch()
-const {applicant_name, interview_id} = data
-console.log(applicant_name, interview_id);
-const hanldeCancelInterview = () =>{
-dispatch(cancelInterview(interview_id))
-}
+
   if (!visible) return null;
 
   return (
@@ -40,13 +35,13 @@ dispatch(cancelInterview(interview_id))
      <Image src={AlertIcon} alt="close-icon" width={50} height={50} />
      </div>
      <div>
-     <h1 className="text-2xl font-semibold text-darkGray text-center">{a("RejectInterview")}{" "}{applicant_name}{locale === "ar" ? "؟" : "?"}</h1>
+     <h1 className="text-2xl font-semibold text-darkGray text-center">{g("deletejob")}{" "}{jobTitle}</h1>
      </div>
 
 
         <div className="w-full">
-        <button onClick={hanldeCancelInterview} className="px-8 py-3 w-full col-span-2 mt-2 bg-red-500 text-white rounded-lg">
-        {a("InterviewReject")}
+        <button className="px-8 py-3 w-full col-span-2 mt-2 bg-red-500 text-white rounded-lg" onClick={handleDelete}>
+        {g("deleteconfirm")}
           </button>
         </div>
         </div>
@@ -60,4 +55,4 @@ dispatch(cancelInterview(interview_id))
   );
 };
 
-export default AcceptModal;
+export default ConfirmDelete;

@@ -4,6 +4,8 @@ import authReducer from './Slices/authSlice';
 import profileReducer from './Slices/profileSlice';
 import applicantsReducer from "./Slices/applicantSlice"
 import jobsReducer from "./Slices/jobsSlice"
+import companiesReducer from "./Slices/companiesSlice"
+import userReducer from "./Slices/usersSlice"
 import inputTypesSliceReducer from "./Slices/inputsSlices/inputTypeSlice"
 
 const store = configureStore({
@@ -12,6 +14,8 @@ const store = configureStore({
     profile: profileReducer,
     applicants: applicantsReducer,
     jobs: jobsReducer,
+    companies: companiesReducer,
+    users : userReducer,
     inputTypes: inputTypesSliceReducer
   },
 });

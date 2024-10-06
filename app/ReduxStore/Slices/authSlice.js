@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from './apiService';
 
 export const login = createAsyncThunk('auth/login', async (credentials) => {
-  const response = await api.post('api/company/auth/signin', credentials);
+  const response = await api.post('/api/admin/auth/signin ', credentials);
   return response.data;
 });
 

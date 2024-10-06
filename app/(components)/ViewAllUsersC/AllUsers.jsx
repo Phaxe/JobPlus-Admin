@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from "react";
 
 
 import Navbar from '../Navbar/Navbar'
@@ -6,54 +7,48 @@ import SideBar from "../MySideBar/MySideBar"
 import PageHeader from "../ComPagesHeaders/PagesHeaders"
 import SearchInput from "../SearchInput/SearchInput"
 import UsersTable from "./AllUsersTable/AllUsersTable"
+import BeatLoader from "react-spinners/BeatLoader"
 
+import { useLocale, useTranslations } from "next-intl";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "@/app/ReduxStore/Slices/usersSlice";
 
-import { useTranslations } from 'next-intl'
-import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { AiOutlineStop } from "react-icons/ai";
-import { HiOutlineTrash } from "react-icons/hi2";
-import { ImSwitch } from "react-icons/im";
 function AllUsers() {
     const t = useTranslations("JobsTable");
     const g = useTranslations("General");
-    const userMenuItems = [
-        {
-          key: 1,
-          text: t("jobDetails"),
-          color: "#000",
-          icon: <MdOutlineRemoveRedEye size={15} />,
-        },
-        {
-          key: "2",
-          text:  t("Candidates"),
-          href: "/AllApplicants",
-          color: "#40AC9A",
-          icon: <MdOutlineRemoveRedEye size={15} />,
-        },
-        {
-          key: "3",
-          text: g("Stop"),
-          href: "/",
-          color: "#FF9900",
-          icon: <ImSwitch size={15}/> ,
-        },
-        {
-            key: "4",
-            text: g("Hide"),
-            href: "/",
-            color: "#9D9D9D",
-            icon:<AiOutlineStop size={15}/>,
-          },
-          {
-            key: "5",
-            text: g("Delete"),
-            href: "/",
-            color: "#DC5A5A",
-            icon:<HiOutlineTrash size={15}/>,
-          },
-      
-        
-      ];
+    const locale = useLocale()
+    const dispatch = useDispatch();
+    const { data, loading } = useSelector((state) => state.users);
+    const { token } = useSelector((state) => state.auth);
+    const [currentPage, setCurrentPage] = useState(1);
+    const currentTableData = Array.isArray(data?.data) ? data?.data : []
+    const pagination = data?.pagination || {};
+    const pageSize = pagination.perPage || 10;
+    const totalItems = pagination.total;
+  
+    useEffect(() => {
+      if (token) {
+        dispatch(fetchUsers({page: currentPage,locale}));
+      }
+    }, [dispatch, token, currentPage, locale]);
+  
+  
+  
+    const handlePageChange = (page) => {
+      setCurrentPage(page);
+     
+    };
+    console.log(currentTableData);
+  
+    
+    
+      if (loading) {
+        return (
+          <div className=" flex items-center justify-center w-full h-screen m-auto ">
+            <BeatLoader color="#1984E5" size={30}/>
+          </div>
+        );
+      }
   return (
     <div>
         <Navbar/>
@@ -80,7 +75,14 @@ function AllUsers() {
       buttonName2={g("Excel")}
       disabled={false}
         />
-        <UsersTable dropDownData={userMenuItems} />
+        <UsersTable 
+              loading={loading}
+              currentTableData={currentTableData}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              totalItems={totalItems}
+              handlePageChange={handlePageChange}
+               />
         </div>
         </div>
     </div>

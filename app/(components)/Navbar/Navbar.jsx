@@ -7,16 +7,23 @@ import { usePathname, Link } from "./Navigation";
 import Image from "next/image";
 import { CiLock, CiLogout } from "react-icons/ci";
 import "./Terms.css";
-
-
+import { logout } from "@/app/ReduxStore/Slices/authSlice";
+import { useDispatch } from "react-redux";
+import {  useRouter} from "@/Navigation";
 const Navbar = () => {
 
   const locale = useLocale();
   const pathName = usePathname();
   const localeEn = "en";
   const localeAr = "ar";
-
-
+  const router = useRouter()
+  const dispatch = useDispatch();
+  const handleLotOut = () =>{
+    dispatch(logout())
+    setTimeout(() => {
+      router.push("/  ")
+    }, 1500);
+  }
   
 
   const languageMenu = (
@@ -87,7 +94,7 @@ const Navbar = () => {
             />
           </Button>
         </Dropdown>
-      <div className="px-2">
+      <div className="px-2" onClick={handleLotOut}>
       <Image
           alt="actions-icon"
           src="/logout.svg"

@@ -7,97 +7,29 @@ import AllUsersDropDown from "./UsersDropDown"
 import { useLocale, useTranslations } from "next-intl";
 import TableToggle from "./TableToggle";
 
-const AllUsesrsTable = ({dropDownData}) => {
+const AllUsesrsTable = (
+  {
+    dropdownTable,
+    loading,
+    handlePageChange,
+    currentTableData,
+    currentPage,
+    totalItems,
+    pageSize,
+  
+  }
+) => {
  
   const t = useTranslations("JobsTable");
   const c = useTranslations("Candidates")
- 
+
+  const g = useTranslations("General");
   const locale = useLocale()
-  const [expandedRows, setExpandedRows] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const toggleRow = (key) => {
-    setExpandedRows((prev) =>
-      prev.includes(key) ? prev.filter((id) => id !== key) : [...prev, key]
-    );
-  };
- 
-  const mainTableData = [
-    {
-      key: "1",
-      jobTitle: "محاسب",
-      createdDate: "هايل ال ثابت",
-      endDate: "Haill.d@gmail.com%",
-      city: "966538293808",
-      applicants: "12/06/2020",
-      candidates: "الرياض",
-      status:"طلب إعادة جدولة"
-    },
-    {
-      key: "1",
-      jobTitle: "محاسب",
-      createdDate: "هايل ال ثابت",
-      endDate: "Haill.d@gmail.com%",
-      city: "966538293808",
-      applicants: "12/06/2020",
-      candidates: "الرياض",
-      status:"طلب إعادة جدولة"
-    },
-    {
-      key: "1",
-      jobTitle: "محاسب",
-      createdDate: "هايل ال ثابت",
-      endDate: "Haill.d@gmail.com%",
-      city: "966538293808",
-      applicants: "12/06/2020",
-      candidates: "الرياض",
-      status:"طلب إعادة جدولة"
-    },
-    {
-      key: "1",
-      jobTitle: "محاسب",
-      createdDate: "هايل ال ثابت",
-      endDate: "Haill.d@gmail.com%",
-      city: "966538293808",
-      applicants: "12/06/2020",
-      candidates: "الرياض",
-      status:"طلب إعادة جدولة"
-    },
-    {
-      key: "1",
-      jobTitle: "محاسب",
-      createdDate: "هايل ال ثابت",
-      endDate: "Haill.d@gmail.com%",
-      city: "966538293808",
-      applicants: "12/06/2020",
-      candidates: "الرياض",
-      status:"طلب إعادة جدولة"
-    },
-    {
-      key: "1",
-      jobTitle: "محاسب",
-      createdDate: "هايل ال ثابت",
-      endDate: "Haill.d@gmail.com%",
-      city: "966538293808",
-      applicants: "12/06/2020",
-      candidates: "الرياض",
-      status:"طلب إعادة جدولة"
-    },
-    // Add more rows as needed
-  ];
-   // Pagination settings
-   const pageSize = 5; // Number of rows per page
-   const totalItems = mainTableData.length; // Total number of items
- 
-   // Calculate pagination range
-   const startIndex = (currentPage - 1) * pageSize;
-   const endIndex = Math.min(startIndex + pageSize, totalItems);
- 
-   const currentTableData = mainTableData.slice(startIndex, endIndex);
- 
-   // Handle page change
-   const handlePageChange = (page) => {
-     setCurrentPage(page);
-   };
+
+
+
+
+
 
 
 
@@ -119,30 +51,28 @@ const AllUsesrsTable = ({dropDownData}) => {
           </tr>
           </thead>
     <tbody >
-      {mainTableData.map((row) => (
+      {currentTableData.map((row) => (
         <>
-          <tr key={row.key} className="border text-start h-[52px]">
+          <tr key={row.id} className="border text-start h-[52px]">
   
             <td className={`py-2 px-4 text-darkGray  text-start font-semibold font-cairo  gap-2 border h-[52px] ${locale === "ar" ? " rounded-r-lg" : " rounded-l-lg"}`}>
-              {row.jobTitle}
+              {row.full_name}
             </td>
             <td className={`py-2 px-4 text-darkGray  text-start font-semibold font-cairo border  ${locale === "ar" ? " border-r-0 border-l-0" : " border-l-0"}`}>
-              {row.createdDate}
+              {row.phone_number}
             </td>
             <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
-              {row.endDate}
+              Missing!!!
             </td>
             <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
-              {row.city}
+              {row.creation_date}
             </td>
             <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
-              {row.applicants}
+              {row.profile_completion_percentage}
             </td>
-            <td className="py-2 px-4 text-darkGray font-semibold font-cairo border border-l-0">
-              {row.candidates}
-            </td>
+         
           <TableToggle/>
-            <AllUsersDropDown dropDownData={dropDownData} />
+            <AllUsersDropDown  />
           </tr>
       
         </>

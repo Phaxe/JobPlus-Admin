@@ -15,7 +15,51 @@ import ApplicantHeader from "../../Applicants/ApplicantHeader/ApplicantHeader";
 import AcceptModal from "../../Alerts/AcceptAlert/AcceptModal";
 import RejectModal from "../../Alerts/RejectAlert/RejectModal";
 import ComplaintModal from "../../Alerts/ComplaintAlert/ComplainAlert";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { AiOutlineStop } from "react-icons/ai";
+import { HiOutlineTrash } from "react-icons/hi2";
+import { ImSwitch } from "react-icons/im";
 const TableDropDown = ({ dropDownData }) => {
+  const t = useTranslations("JobsTable");
+  const g = useTranslations("General");
+  const userMenuItems = [
+    {
+      key: 1,
+      text: t("jobDetails"),
+      color: "#000",
+      icon: <MdOutlineRemoveRedEye size={15} />,
+    },
+    {
+      key: "2",
+      text:  t("Candidates"),
+      href: "/AllApplicants",
+      color: "#40AC9A",
+      icon: <MdOutlineRemoveRedEye size={15} />,
+    },
+    {
+      key: "3",
+      text: g("Stop"),
+      href: "/",
+      color: "#FF9900",
+      icon: <ImSwitch size={15}/> ,
+    },
+    {
+        key: "4",
+        text: g("Hide"),
+        href: "/",
+        color: "#9D9D9D",
+        icon:<AiOutlineStop size={15}/>,
+      },
+      {
+        key: "5",
+        text: g("Delete"),
+        href: "/",
+        color: "#DC5A5A",
+        icon:<HiOutlineTrash size={15}/>,
+      },
+  
+    
+  ];
   const locale = useLocale();
 const pathName = usePathname()
 const a = useTranslations("Applicant")
@@ -48,7 +92,7 @@ const a = useTranslations("Applicant")
   };
   const userMenu = (
     <Menu className="font-cairo">
-      {dropDownData.slice(0, 2).map((item) => (
+      {userMenuItems.slice(0, 2).map((item) => (
         <Menu.Item
         key={item.key}
         className="font-cairo"
@@ -110,7 +154,7 @@ const a = useTranslations("Applicant")
 
       <Expanded onChange={(e) => e.event.target} />
 
-      {dropDownData.slice(2).map((item) => (
+      {userMenuItems.slice(2).map((item) => (
        <Menu.Item
        key={item.key}
        className="font-cairo"

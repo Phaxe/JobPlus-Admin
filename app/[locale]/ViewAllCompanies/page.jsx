@@ -1,11 +1,12 @@
-import React from 'react'
-import ViewCompanies from "../../(components)/ViewAllCompanies/ViewCompanies"
-function page() {
+"use client";
+import React from "react";
+import ViewCompanies from "../../(components)/ViewAllCompanies/ViewCompanies";
+function Page() {
   return (
     <div>
-        <ViewCompanies/>
+      <ViewCompanies />
     </div>
-  )
+  );
 }
 
-export default page
+export default Page;
