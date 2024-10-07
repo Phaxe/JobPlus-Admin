@@ -44,7 +44,7 @@ function ViewJobs() {
       <Navbar />
       <div className="flex items-start justify-start w-full ">
         <SideBar />
-        <div>
+        <div className="responsive">
           <PageHeader
             searchFields={<SearchInput />}
             goTo={"/addNewJob"}

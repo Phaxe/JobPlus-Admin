@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 
 function TableToggle({ status }) {
   // Set initial state based on the status prop
-  const [openToggle, setOpenToggle] = useState(status === "active");
+  const [openToggle, setOpenToggle] = useState(status === "active" || true) ;
 
   const handleToggle = () => {
     setOpenToggle(!openToggle);
