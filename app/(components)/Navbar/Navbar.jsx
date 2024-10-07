@@ -94,7 +94,7 @@ const Navbar = () => {
             />
           </Button>
         </Dropdown>
-      <div className="px-2" onClick={handleLotOut}>
+      <div className="px-2 cursor-pointer" onClick={handleLotOut}>
       <Image
           alt="actions-icon"
           src="/logout.svg"

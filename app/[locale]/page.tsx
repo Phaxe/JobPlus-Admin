@@ -9,7 +9,7 @@ function Page() {
 
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full flex itemc justify-center text-2xl text-Homeworld-600">
  hello from home page
     </div>
   );
