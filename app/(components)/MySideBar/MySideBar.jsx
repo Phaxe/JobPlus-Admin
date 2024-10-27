@@ -23,41 +23,50 @@ const MySideBar = () => {
          onClick={() => setActiveItem(`/${locale}`)}
         href="/" SideItemText={s("Home")}/>
         <MySideItems
-       isActive={pathName === `/${locale}/JobsInformationPage` || pathName === `/${locale}/addNewJob ` || pathName === `/${locale}/EditJobPage` ? true : false}
-       onClick={() => setActiveItem(`${"/JobsInformationPage"   ? "/JobsInformationPage": "/addNewJob" || "/EditJobPage"}`)}
-           href="/JobsInformationPage" SideItemText={s("Jobs")}/>
+       isActive={pathName === `/${locale}/ViewAllJobs` || pathName === `/${locale}/addNewJob ` || pathName === `/${locale}/EditJobPage` ? true : false}
+       onClick={() => setActiveItem(`${"/ViewAllJobs"   ? "/ViewAllJobs": "/addNewJob" || "/EditJobPage"}`)}
+           href="/ViewAllJobs" SideItemText={s("Jobs")}/>
         <MySideItems
-         isActive={pathName === `/${locale}/AllApplicants`  ? true : false}
-          onClick={() => setActiveItem(`${"/AllApplicants"}`)}
-           href="/AllApplicants" SideItemText={s("Candidates")}/>
+         isActive={pathName === `/${locale}/ViewAllUsers`  ? true : false}
+          onClick={() => setActiveItem(`${"/ViewAllUsers"}`)}
+           href="/ViewAllUsers" SideItemText={s("allUsers")}/>
         <MySideItems
-         isActive={pathName === `/${locale}/ViewAllCandidate`  ? true : false}
-          onClick={() => setActiveItem(`${"/ViewAllCandidate"}`)}
-           href="/ViewAllCandidate" SideItemText={s("candidatesInterviews")}/> 
+         isActive={pathName === `/${locale}/ViewAllCompanies`  ? true : false}
+          onClick={() => setActiveItem(`${"/ViewAllCompanies"}`)}
+           href="/ViewAllCompanies" SideItemText={s("Companies")}/> 
         <MySideItems
          isActive={pathName === `/${locale}/AllInterviews`  ? true : false}
           onClick={() => setActiveItem(`${"/AllInterviews"}`)}
-           href="/AllInterviews" SideItemText={s("Interviews")}/>
+           href="/AllInterviews" SideItemText={s("Notifacations")}/>
         <MySideItems
          isActive={pathName === `/${locale}/ViewNotifications`  ? true : false}
           onClick={() => setActiveItem(`${"/ViewNotifications"}`)}
-           href="/ViewNotifications" SideItemText={s("Notifacations")}/>
+           href="/ViewNotifications" SideItemText={s("Complains")}/>
         <MySideItems
          isActive={activeItem === 7}
           onClick={() => setActiveItem(7)}
-           href="#" SideItemText={s("Plans")}/>
+           href="#" SideItemText={s("Rating")}/>
         <MySideItems
-         isActive={activeItem === 8}
-          onClick={() => setActiveItem(8)}
-           href="#" SideItemText={s("Bills")}/>
+             isActive={pathName === `/${locale}/ViewAllAdmins`  ? true : false}
+             onClick={() => setActiveItem(`${"/ViewAllAdmins"}`)}
+              href="/ViewAllAdmins" SideItemText={s("adminManagers")}/>
         <MySideItems
         isActive={pathName === `/${locale}/companyUserProfile` || pathName === `/${locale}/EditCompanyProfile` ? true : false}
         onClick={() => setActiveItem(`${"/companyUserProfile"   ? "/companyUserProfile": "/EditCompanyProfile"}`)}
-           href="/companyUserProfile" SideItemText={s("companyProfile")}/>
+           href="/companyUserProfile" SideItemText={s("disabilityManagment")}/>
         <MySideItems
          isActive={pathName === `/${locale}/Contactus`  ? true : false}
           onClick={() => setActiveItem(`${"/Contactus"}`)}
-           href="/Contactus" SideItemText={s("Contact")}/>
+           href="/Contactus" SideItemText={s("Subscribtion")}/>
+                    <MySideItems
+         isActive={pathName === `/${locale}/Contactus`  ? true : false}
+          onClick={() => setActiveItem(`${"/Contactus"}`)}
+           href="/Contactus" SideItemText={s("Plans")}/>
+             <MySideItems
+         isActive={pathName === `/${locale}/Contactus`  ? true : false}
+          onClick={() => setActiveItem(`${"/Contactus"}`)}
+           href="/Contactus" SideItemText={s("contentManagment")}/>
+
       </ul>
     </div>
   </div>

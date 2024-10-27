@@ -5,7 +5,7 @@
     "companyImage": "الصورة الرمزيه",
     "accountInfo": "معلومات الشركة",
     "contactInfo": "معلومات التواصل",
-    "deleteProfile":"حذف حساب الشركة"
+    "deleteProfile": "حذف حساب الشركة"
   },
   "LandingPage": {
     "Home": "الرئيسية",
@@ -87,10 +87,10 @@
     "addJob": "إضافة",
     "Stats": "الإحصائيات",
     "todayDate": "تاريخ اليوم",
-     "Hello":"أهلا"
+    "Hello": "أهلا"
   },
   "AddJob": {
-    "jobtype":"نوع الدوام",
+    "jobtype": "نوع الدوام",
     "jobDescribtion": "المتطلبات الوظيفية",
     "jobTitle": "المسمى الوظيفي",
     "jobFeild": "مجال العمل",
@@ -135,25 +135,24 @@
     "endDate": "تاريخ الانتهاء ",
     "jobDetails": "عرض تفاصيل الوظيفة",
     "Candidates": "عرض المتقدمين",
-    "adminActive":"مفعله من جهة الشركة",
-    "plusActive":"مفعله من جهة الأدمن",
-    "candidates":"عدد المرشحين للمقابلة",
-    "disableJob":"لذوي الإعاقة",
-    "applicant":"عدد المتقدمين ",
-    "publishDate":"تاريخ النشر",
-    "publishEndDate":"تاريخ انتهاء الإعلان",
-    "jobTime":"وقت العمل",
-    "addDetails":"تفاصيل الإعلان",  
-    "jobLocation":"موقع الوظيفة",
-    "educationDegree":"التخصص التعليمي",
-    "expYears":"عدد سنوات الخبرة",
-    "contractType":"نوع العقد",
-    "applicantNumber":"العدد المطلوب ",
-    "jobDescribtion":"الملخص الوظيفي",
-    "Languages":"اللغات",
-    "Skills":"المهارات",
-    "Salary":"الراتب"
-    
+    "adminActive": "مفعله من جهة الشركة",
+    "plusActive": "مفعله من جهة الأدمن",
+    "candidates": "عدد المرشحين للمقابلة",
+    "disableJob": "لذوي الإعاقة",
+    "applicant": "عدد المتقدمين ",
+    "publishDate": "تاريخ النشر",
+    "publishEndDate": "تاريخ انتهاء الإعلان",
+    "jobTime": "وقت العمل",
+    "addDetails": "تفاصيل الإعلان",
+    "jobLocation": "موقع الوظيفة",
+    "educationDegree": "التخصص التعليمي",
+    "expYears": "عدد سنوات الخبرة",
+    "contractType": "نوع العقد",
+    "applicantNumber": "العدد المطلوب ",
+    "jobDescribtion": "الملخص الوظيفي",
+    "Languages": "اللغات",
+    "Skills": "المهارات",
+    "Salary": "الراتب"
   },
   "Applicant": {
     "allApplicant": "المتقدمين للوظائف",
@@ -168,7 +167,7 @@
     "Gender": "الجنس",
     "Acceptance": "نسبة الملائمة",
     "City": "المدينة",
-    "jobLocation":"موقع الوظيفة",
+    "jobLocation": "موقع الوظيفة",
     "Disability": "نوع الإعاقة",
     "Status": "حالة المتقدم",
     "expYears": "عدد سنوات الخبرة",
@@ -194,14 +193,13 @@
     "interviewButton": "قبول للمقابلة",
     "interviewText": "   للمقابلة",
     "confirmInterview": "تم قبول المقابله",
-    "deletejob":"هل انت متاكد من حذف وظيفة ",
-    "deleteconfirm":"حذف نهائي"
-    
+    "deletejob": "هل انت متاكد من حذف وظيفة ",
+    "deleteconfirm": "حذف نهائي"
   },
 
   "Candidates": {
     "Job": "الوظيفة ",
-    "interviewDone":"تمت المقابلة",
+    "interviewDone": "تمت المقابلة",
     "Interviews": "المقابلات",
     "Applicant": "اسم المرشح",
     "Place": "مكان الإقامة",
@@ -238,13 +236,25 @@
     "Plans": "الباقات",
     "Bills": "الفواتير",
     "companyProfile": "معلومات الحساب",
-    "Contact": "تواصل معنا"
+    "Contact": "تواصل معنا",
+    "allUsers": "المستخدمين",
+    "Companies": "الشركات",
+    "Complains": "الشكاوي",
+    "Rating": "التقيمات",
+    "adminManagers": " مدراء لوحة التحكم",
+    "disabilityManagment": "أدارة ذوي الأعاقه",
+    "Subscribtion": "الأشتراكات",
+    "contentManagment": "التحكم بالمحتوى"
   },
   "General": {
     "save": "حفظ",
-    "NoNotificationsAvailable":"لا يوجد إشعارات",
+    "NoNotificationsAvailable": "لا يوجد إشعارات",
     "send": "أرسال",
-    "active":"تفعيل",
+    "sendNotification": "أرسال أشعار",
+    "editUserInfo": "تعديل بيانات المستخدم",
+    "showAppJobs": "عرض الوظائف المقدم عليها",
+    "savedApplicant": "حفظ المستخدم",
+    "active": "تفعيل",
     "Home": "الرئيسية",
     "Messages": "الرسائل",
     "searchFor": "ابحث عن...",
@@ -257,7 +267,7 @@
     "goBack": "استعادة",
     "Stop": "إيقاف",
     "Hide": "إخفاء",
-    "Show":"إظهار",
+    "Show": "إظهار",
     "Delete": "حذف",
     "excelNotice": "هذه الخدمة مقدمة للمشتركين فقط!",
     "Edit": "تعديل",
@@ -272,9 +282,9 @@
     "Notifications": "الإشعارات",
     "NotificationsBody": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.",
     "NotificationsTitle": "العنوان",
-    "years":"سنين",
-    "months":"أشهر",
-       "applicantsFor":"المتقدمين لوظيفة"
+    "years": "سنين",
+    "months": "أشهر",
+    "applicantsFor": "المتقدمين لوظيفة"
   },
   "Navbar": {
     "companyName": "اسم الشركة",
@@ -319,10 +329,10 @@
     "interviewLocation": "حدد الموقع المقابلة",
     "interviewLink": "أضف رابط المقابله",
     "Submit": "حفظ الموعد ومشاركة",
-    "interviewStatus":"حالة التقديم",
-    "acceptForInterview":"قبول للمقابله",
-    "accpetAfterInterview":"قبول بعد المقابله",
-    "rejectAfterInterView":"رفض بعد المقابله"
+    "interviewStatus": "حالة التقديم",
+    "acceptForInterview": "قبول للمقابله",
+    "accpetAfterInterview": "قبول بعد المقابله",
+    "rejectAfterInterView": "رفض بعد المقابله"
   },
   "ValidationErrors": {
     "WrongData": "كلمة السر او الايميل غير صحيح",
@@ -348,6 +358,6 @@
     "toLogin": "الذهاب لتسجيل الدخول",
     "deleteNotice": "هل انت متأكد من حذف حسابك الشخصي ؟",
     "deleteButton": "تأكيد الحذف",
-    "jobAdded":"تم اضافة الوظيفه بنجاح"
+    "jobAdded": "تم اضافة الوظيفه بنجاح"
   }
 }

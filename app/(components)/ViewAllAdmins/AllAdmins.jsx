@@ -59,7 +59,7 @@ function AllUsers() {
         <Navbar/>
         <div className='flex items-start justify-start w-full ' >
         <SideBar/>
-        <div >
+        <div className='w-full' >
         <PageHeader
         searchFields={<SearchInput hidden={"hidden"}/>}
       goTo={"/addNewJob"}

@@ -5,38 +5,22 @@ import Image from "next/image";
 import Frame from "/public/Frame2.png";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/Navigation";
-import Expanded from "./ExpandedDropdown";
+import Expanded from "../ViewAllUsersC/AllUsersTable/ExpandedDropdown";
 import useModal from "@/app/(hooks)/ModalToggle/useModalToggle";
 import SaveFilled from "/public/saveFill.svg";
 import SaveClear from "/public/saveClear.svg";
 import GrayClose from "/public/grayClose.svg";
-import ApplicantModal from "../../Applicants/ApplicantModal/ApplicantModal";
-import ApplicantHeader from "../../Applicants/ApplicantHeader/ApplicantHeader";
-import AcceptModal from "../../Alerts/AcceptAlert/AcceptModal";
-import RejectModal from "../../Alerts/RejectAlert/RejectModal";
-import ComplaintModal from "../../Alerts/ComplaintAlert/ComplainAlert";
-import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { AiOutlineStop } from "react-icons/ai";
-import { HiOutlineTrash } from "react-icons/hi2";
-import { ImSwitch } from "react-icons/im";
-const UsersDropDown = ({userMenuItems}) => {
-  
+import ApplicantModal from "../Applicants/ApplicantModal/ApplicantModal";
+import ApplicantHeader from "../Applicants/ApplicantHeader/ApplicantHeader";
+import AcceptModal from "../Alerts/AcceptAlert/AcceptModal";
+import RejectModal from "../Alerts/RejectAlert/RejectModal";
+import ComplaintModal from "../Alerts/ComplaintAlert/ComplainAlert";
 
-
-
-  const g = useTranslations("General");
-
-  const locale = useLocale();
-const pathName = usePathname()
+const UsersDropDown = ({completion,name,userMenuItems, applicantModal,applicantToggle}) => {
+const locale = useLocale();
 const a = useTranslations("Applicant")
-  const localeEn = "en"
-  const localeAr = "ar"
-  const [visible, setVisible] = useState(false);
-  const {
-    isModalOpen: applicantToggle,
-    toggleModal: applicantModal
-  } = useModal();
-  const {
+const [visible, setVisible] = useState(false);
+const {
     isModalOpen: saveIconToggle,
     toggleModal: saveIconSwitch
   } = useModal();
@@ -53,36 +37,20 @@ const a = useTranslations("Applicant")
     toggleModal: acceptModal
   } = useModal();
 
-  const cancelDefault = (e) => {
-    stopPropagation();
-  };
   const userMenu = (
     <Menu className="font-cairo">
       {userMenuItems.slice(0, 2).map((item) => (
         <Menu.Item
         key={item.key}
         className="font-cairo"
-        onMouseDown={(e) => {
-          if (item.key === 2) {
-            saveIconSwitch();
-            e.stopPropagation(); // Prevent the dropdown from closing
-          }
-        }}
         onClick={(e) => {
-          if (item.key === 1) {
-            applicantModal();
-          }
-          if (item.key === 2) {
-            cancelDefault(e);
-          }
-          if (item.key === 3) {
-            complainModal();
-          }
-        }}
+            
+            item.onClick && item.onClick(); // Call the item's onClick handler if it exists
+          }}
       >
           <a href={item.href}>
             <div className="border-b border-gray-100 font-cairo">
-              <span
+            <span
                 className="text-sm py-4 font-cairo"
                 style={{
                   color: item.color,
@@ -90,27 +58,7 @@ const a = useTranslations("Applicant")
                   alignItems: "center",
                 }}
               >
-                <span className="px-2">
-                  {item.key === 2 ? (
-                    saveIconToggle ? (
-                      <Image
-                        src={SaveFilled}
-                        width={12}
-                        height={10}
-                        alt="save-filled"
-                      />
-                    ) : (
-                      <Image
-                        src={SaveClear}
-                        width={12}
-                        height={10}
-                        alt="save-clear"
-                      />
-                    )
-                  ) : (
-                    item.icon
-                  )}
-                </span>
+                <span className="px-2">{item.icon}</span>
                 {item.text}
               </span>
             </div>
@@ -118,29 +66,16 @@ const a = useTranslations("Applicant")
         </Menu.Item>
       ))}
 
-      <Expanded onChange={(e) => e.event.target} />
+      <Expanded onChange={(e) => e.event.target} shown={"hidden"}/>
 
       {userMenuItems.slice(2).map((item) => (
        <Menu.Item
        key={item.key}
        className="font-cairo"
-       onMouseDown={(e) => {
-         if (item.key === 2) {
-           saveIconSwitch();
-           e.stopPropagation(); // Prevent the dropdown from closing
-         }
-       }}
-       onClick={(e) => {
-         if (item.key === 1) {
-           applicantModal();
-         }
-         if (item.key === 2) {
-           cancelDefault(e);
-         }
-         if (item.key === 3) {
-           complainModal();
-         }
-       }}
+       onClick={() => {
+        
+        item.onClick && item.onClick(); // Call the item's onClick handler if it exists
+      }}
      >
           <a href={item.href}>
             <div className="border-b border-gray-100 font-cairo">

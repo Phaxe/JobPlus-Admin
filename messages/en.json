@@ -246,7 +246,16 @@
     "Plans": "Plans",
     "Bills": "Bills",
     "companyProfile": "Account Info.",
-    "Contact": "Contact Us"
+    "Contact": "Contact Us",
+    "allUsers":"All Users",
+    "Companies":"Companies",
+    "Complains":"Complains",
+    "Rating":"Rating",
+    "adminManagers":"Admin Managers",
+    "disabilityManagment":"Disability Managment",
+    "Subscribtion":"Subscribtions",
+    "contentManagment":"Content Managment"
+
   },
   "General": {
     "Home": "Home",
@@ -254,6 +263,10 @@
     "send": "Send",
     "active":"Active",
     "Messages": "Messages",
+    "sendNotification":"Send Notification",
+    "editUserInfo":"Edit User Information",
+    "showAppJobs":"Applied Jobs",
+    "savedApplicant":"Save User",
     "Jobs": "Jobs",
     "searchFor": "Search for...",
     "checkNow": "Check now",

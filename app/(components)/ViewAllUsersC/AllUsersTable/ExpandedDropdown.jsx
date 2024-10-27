@@ -10,6 +10,7 @@ const ExpandedDropDown = ({
   classWidth,
   noticeClass,
   notice,
+  shown
 }) => {
   const options = [
     { value: "قبول للمقابله", label: "قبول للمقابله" },
@@ -24,7 +25,7 @@ const ExpandedDropDown = ({
   const locale = useLocale();
 
   return (
-    <div className=" w-full">
+    <div className={`w-full ${shown}`}>
       <div className={`relative border-b border-gray-100  ${classWidth} `}>
    
         <select
