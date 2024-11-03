@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, Dropdown, Button } from "antd";
 import Image from "next/image";
 import Frame from "/public/Frame2.png";
@@ -15,15 +15,15 @@ import ApplicantHeader from "../Applicants/ApplicantHeader/ApplicantHeader";
 import AcceptModal from "../Alerts/AcceptAlert/AcceptModal";
 import RejectModal from "../Alerts/RejectAlert/RejectModal";
 import ComplaintModal from "../Alerts/ComplaintAlert/ComplainAlert";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchApplicantId } from "@/app/ReduxStore/Slices/applicantByIdSlice";
 
-const UsersDropDown = ({completion,name,userMenuItems, applicantModal,applicantToggle}) => {
+const UsersDropDown = ({completion,name,userMenuItems, applicantModal,applicantToggle,id}) => {
 const locale = useLocale();
 const a = useTranslations("Applicant")
 const [visible, setVisible] = useState(false);
-const {
-    isModalOpen: saveIconToggle,
-    toggleModal: saveIconSwitch
-  } = useModal();
+const [applicantStatus, setApplicantStatus] = useState("")
+const dispatch = useDispatch()
   const {
     isModalOpen: complainToggle,
     toggleModal: complainModal
@@ -36,16 +36,35 @@ const {
     isModalOpen: acceptToggle,
     toggleModal: acceptModal
   } = useModal();
-
+  const { token } = useSelector((state) => state.auth);
+  const { data, loading, error } = useSelector((state) => state.applicantsById);
+  const appData = data?.data
+  const handleApplicantModal = (id) => {
+if(token){
+  dispatch(fetchApplicantId({  APPLICATION_ID: id ,locale}));
+  setTimeout(() => {
+    applicantModal();
+  }, 1000);
+}
+  };
+  
+  console.log(appData);
+  
+  const handleClose = () =>{
+    setVisible(false);
+  }
   const userMenu = (
     <Menu className="font-cairo">
       {userMenuItems.slice(0, 2).map((item) => (
         <Menu.Item
         key={item.key}
         className="font-cairo"
-        onClick={(e) => {
+        onClick={(e,key) => {
             
-            item.onClick && item.onClick(); // Call the item's onClick handler if it exists
+          
+            if(item.key === 1){
+              handleApplicantModal(id)
+            } // Call the item's onClick handler if it exists
           }}
       >
           <a href={item.href}>
@@ -156,13 +175,13 @@ const {
             </button>
             <div className="">
               <ApplicantHeader
+              name={name}
               onClick={acceptModal}
               modalReject={rejectModal}
-                text1={a("Accept")}
-                text2={a("Reject")}
-                text3={a("reschedule")}
+              appData={appData}
+    
               />
-              <ApplicantModal />
+              <ApplicantModal appData={appData} />
             </div>
           </div>
         </div>

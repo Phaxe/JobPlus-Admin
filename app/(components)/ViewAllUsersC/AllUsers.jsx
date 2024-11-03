@@ -25,6 +25,7 @@ function AllUsers() {
     const pagination = data?.pagination || {};
     const pageSize = pagination.perPage || 10;
     const totalItems = pagination.total;
+  console.log(token);
   
     useEffect(() => {
       if (token) {

@@ -4,7 +4,7 @@ import "tailwindcss/tailwind.css";
 import styles from "./NewTable.css";
 import { Pagination } from "antd";
 // import AllUsersDropDown from "./UsersDropDown";
-import DropDownMenu from "../../DropDownMenu/DropDownMenu"
+import DropDownMenu from "../../DropDownMenu/DropDownMenu";
 import SaveFilled from "/public/saveFill.svg";
 import SaveClear from "/public/saveClear.svg";
 import { useLocale, useTranslations } from "next-intl";
@@ -31,60 +31,48 @@ const AllUsesrsTable = ({
 
   const g = useTranslations("General");
   const locale = useLocale();
-  const {
-    isModalOpen: applicantToggle,
-    toggleModal: applicantModal
-  } = useModal();
-  const {
-    isModalOpen: saveIconToggle,
-    toggleModal: saveIconSwitch
-  } = useModal();
-  const {
-    isModalOpen: complainToggle,
-    toggleModal: complainModal
-  } = useModal();
-  const {
-    isModalOpen: rejectToggle,
-    toggleModal: rejectModal
-  } = useModal();
-  const {
-    isModalOpen: acceptToggle,
-    toggleModal: acceptModal
-  } = useModal();
+  const { isModalOpen: applicantToggle, toggleModal: applicantModal } =
+    useModal();
+  const { isModalOpen: saveIconToggle, toggleModal: saveIconSwitch } =
+    useModal();
+  const { isModalOpen: complainToggle, toggleModal: complainModal } =
+    useModal();
+  const { isModalOpen: rejectToggle, toggleModal: rejectModal } = useModal();
+  const { isModalOpen: acceptToggle, toggleModal: acceptModal } = useModal();
   const userMenuItems = [
     {
       key: 1,
       text: c("showCV"),
       color: "#000",
       icon: <MdOutlineRemoveRedEye size={15} />,
-      onClick:applicantModal,
+      onClick: applicantModal,
     },
     {
       key: 2,
       text: g("savedApplicant"),
       color: "#FF9900",
-      icon: <TbBadge size={19} style = {{transform: 'rotate(180deg)' }} />,
+      icon: <TbBadge size={19} style={{ transform: "rotate(180deg)" }} />,
       onClick: () => applicantModal(), // Open applicant modal
     },
     {
       key: 3,
       text: g("showAppJobs"),
       color: "#000",
-      icon: <MdOutlineRemoveRedEye  size={15} />,
+      icon: <MdOutlineRemoveRedEye size={15} />,
       onClick: () => complainModal(), // Open complaint modal
     },
     {
       key: 4,
       text: g("editUserInfo"),
       color: "#1676CD",
-      icon: <LiaEditSolid  size={15} />,
+      icon: <LiaEditSolid size={15} />,
       onClick: () => complainModal(), // Open complaint modal
     },
     {
       key: 5,
       text: g("sendNotification"),
       color: "#40AC9A",
-      icon: <FaRegBell  size={15} />,
+      icon: <FaRegBell size={15} />,
     },
     {
       key: 6,
@@ -94,8 +82,6 @@ const AllUsesrsTable = ({
       onClick: () => rejectModal(), // Open reject modal
     },
   ];
-  
-
 
   return (
     <div className={`p-4  my-5 responsive font-cairo bg-white  px-10`}>
@@ -153,7 +139,15 @@ const AllUsesrsTable = ({
                 </td>
 
                 <TableToggle status={row.is_active} />
-                <DropDownMenu completion={row.profile_completion_percentage} name={row.full_name} userMenuItems={userMenuItems} applicantModal={applicantModal} applicantToggle={applicantToggle}/>
+                <DropDownMenu
+                  completion={row.profile_completion_percentage}
+                  name={row.full_name}
+                  userMenuItems={userMenuItems}
+                  applicantModal={applicantModal}
+                  applicantToggle={applicantToggle}
+                  id={row.id}
+                  
+                />
               </tr>
             </>
           ))}
