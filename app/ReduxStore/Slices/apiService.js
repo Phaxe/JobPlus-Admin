@@ -19,7 +19,7 @@ import { stripLocalePrefix } from '../../utils/stripLocalePrefix';
 // export default api;
 
 const api = axios.create({
-    baseURL: 'https://testing.jobplus.sa/'  // Your base URL without locale prefix
+    baseURL: 'https://api.jobplus.sa/'  // Your base URL without locale prefix
   });
   
   api.interceptors.request.use((config) => {
